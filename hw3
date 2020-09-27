@@ -1,0 +1,184 @@
+import java.util.Scanner;
+
+public class seat {
+	
+	
+	String names[] = {"---", "---","---","---","---","---","---","---","---","---"};
+	
+	
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		seat S, A, B;
+		S = new seat();
+		A = new seat();
+		B = new seat();
+		
+		int i;
+		int menu1 = 0;
+		int menu2 = 0;
+		int count = 0;
+		
+		String name;
+		int num;
+
+		
+		System.out.println("명품콘서트홀 예약시스템 입니다.");
+		
+
+		
+		while(menu1 != 4) {
+			System.out.print("예약:1, 조회:2, 취소:3, 끝내기:4>>");
+			menu1 = scanner.nextInt();
+			
+			switch(menu1) {
+				case 1:
+					System.out.print("좌석구분 S(1), A(2), B(3)>>");
+					menu2 = scanner.nextInt();
+					
+					switch(menu2) {
+						case 1:
+							System.out.print("S>> ");
+							for(i=0 ; i<=9 ; i++)
+								System.out.print(S.names[i]+" ");
+							System.out.println("");
+							
+							System.out.print("이름>>");
+							name = scanner.next();
+							
+							System.out.print("번호>>");
+							num = scanner.nextInt();
+							
+							S.names[num - 1] = name;
+							
+							break;
+						case 2:
+							System.out.print("A>> ");
+							for(i=0 ; i<=9 ; i++)
+								System.out.print(A.names[i]+" ");
+							System.out.println("");
+							
+							System.out.print("이름>>");
+							name = scanner.next();
+							
+							System.out.print("번호>>");
+							num = scanner.nextInt();
+							
+							A.names[num - 1] = name;
+							
+							break;
+						case 3:
+							System.out.print("B>> ");
+							for(i=0 ; i<=9 ; i++)
+								System.out.print(B.names[i]+" ");
+							System.out.println("");
+							
+							System.out.print("이름>>");
+							name = scanner.next();
+							
+							System.out.print("번호>>");
+							num = scanner.nextInt();
+							
+							B.names[num - 1] = name;
+							
+							break;
+						default :
+							System.out.println("잘못 입력하셨습니다.");
+							break;		
+					}
+					break;
+					
+				case 2: //조회
+					System.out.print("S>> ");
+					for(i=0 ; i<=9 ; i++)
+						System.out.print(S.names[i]+" ");
+					System.out.println("");
+
+					System.out.print("A>> ");
+					for(i=0 ; i<=9 ; i++)
+						System.out.print(A.names[i]+" ");
+					System.out.println("");
+
+					System.out.print("B>> ");
+					for(i=0 ; i<=9 ; i++)
+						System.out.print(B.names[i]+" ");
+					System.out.println("");
+					
+					System.out.println("<<<조회를 완료하였습니다.>>>");
+
+					break;
+					
+				case 3: //취소
+					System.out.print("좌석구분 S(1), A(2), B(3)>>");
+					menu2 = scanner.nextInt();
+					
+					switch(menu2) {
+						case 1:
+							System.out.print("S>> ");
+							for(i=0 ; i<=9 ; i++)
+								System.out.print(S.names[i]+" ");
+							System.out.println("");
+							
+							System.out.print("이름>>");
+							name = scanner.next();
+							
+							for(i=0 ; i<=9 ; i++) {
+								if(S.names[i].equals(name))
+									S.names[i] = "---";
+									count++;
+							}
+							
+							break;
+						case 2:
+							System.out.print("A>> ");
+							for(i=0 ; i<=9 ; i++)
+								System.out.print(A.names[i]+" ");
+							System.out.println("");
+							
+							System.out.print("이름>>");
+							name = scanner.next();
+							
+							for(i=0 ; i<=9 ; i++) {
+								if(A.names[i].equals(name))
+									A.names[i] = "---";
+									count++;
+							}
+
+							break;
+						case 3:
+							System.out.print("B>> ");
+							for(i=0 ; i<=9 ; i++)
+								System.out.print(B.names[i]+" ");
+							System.out.println("");
+							
+							System.out.print("이름>>");
+							name = scanner.next();
+							
+							for(i=0 ; i<=9 ; i++) {
+								if(B.names[i].equals(name))
+									B.names[i] = "---";
+									count++;
+							}
+
+							break;
+						default :
+							System.out.println("잘못 입력하셨습니다.");
+							break;		
+					}
+					
+					if(count == 0)
+						System.out.println("예약자 명단에 없습니다.");
+					else 
+						count = 0;
+					
+					break;
+				case 4: //끝내기
+					break;
+					
+			}
+
+		}
+		scanner.close();
+	}
+}
