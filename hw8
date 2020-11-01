@@ -1,0 +1,50 @@
+import javax.swing.*;
+import java.awt.*;
+
+class North extends JPanel{
+	public North() {
+		setBackground(Color.GRAY);
+		setLayout(new FlowLayout());
+		add(new JButton("Open"));
+		add(new JButton("Read"));
+		add(new JButton("Close"));
+	}
+
+}
+
+class Center extends JPanel{
+	public Center() {
+		setLayout(null);
+		
+		JLabel love = new JLabel("Love");
+		JLabel hello = new JLabel("Hello");
+		JLabel java = new JLabel("Java");
+		
+		love.setBounds(150, 100, 100, 50);
+		hello.setBounds(50, 170, 100, 50);
+		java.setBounds(20, 25, 100, 50);
+		
+		add(love);
+		add(hello);
+		add(java);
+	}
+}
+
+public class homework extends JFrame{
+	homework(){
+		setTitle("homework");
+		setSize(300,300);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		North NorthPanel = new North();
+		Center CenterPanel = new Center();
+		
+		add(NorthPanel, BorderLayout.NORTH);
+		add(CenterPanel, BorderLayout.CENTER);
+		
+		setVisible(true);
+	}
+	public static void main(String[] args) {
+		new homework();
+	}
+}
